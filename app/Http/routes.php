@@ -26,5 +26,6 @@ Route::group(['middleware'=>'auth'],function(){
     Route::post('/home/edit/{id}','HomeController@update');
     Route::get('/home/delete','HomeController@delete');
     Route::resource('/categories','CategoryController');
+    Route::resource('/geolocations','GeolocationController');
 
 });

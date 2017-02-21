@@ -42,6 +42,7 @@
                 <li><a href="{{ url('/home') }}">Home</a></li>
                 @if(Auth::user())
                     <li><a href="{{  url('/categories') }}">Categories</a></li>
+                    <li><a href="{{  url('/geolocations') }}">GeoLocations</a></li>
                 @endif
             </ul>
 
