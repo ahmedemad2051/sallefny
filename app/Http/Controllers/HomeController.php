@@ -27,19 +27,15 @@ class HomeController extends Controller
     public function index()
     {
         $categories = auth()->user()->categories()->get();
-        $products=Product::all();
-        return view('home', compact('categories','products'));
+        return view('home', compact('categories'));
     }
 
     public function add(productRequest $request)
     {
         if ($request->ajax()) {
-
             Product::create($request->all());
             $categories = auth()->user()->categories()->get();
-            $products=Product::all();
-            $data = view('__products', compact('products'))->render();
-
+            $data = view('__products', compact('categories'))->render();
             return response()->json($data);
         }
     }
@@ -72,8 +68,7 @@ class HomeController extends Controller
     {
         Product::findOrFail($request->id)->delete();
         $categories = auth()->user()->categories()->get();
-        $products=Product::all();
-        $data = view('__products', compact('products'))->render();
+        $data = view('__products', compact('categories'))->render();
         return response()->json($data);
     }
 }
