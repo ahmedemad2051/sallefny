@@ -29,3 +29,5 @@ Route::group(['middleware'=>'auth'],function(){
     Route::resource('/geolocations','GeolocationController');
 
 });
+
+Route::get('/sallefny/products','ApiController@index');
